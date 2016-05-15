@@ -8,7 +8,7 @@ deploy:
   provider: releases
   api_key:
     secure: gCrSiwo4hC2w48dChwFlcpQ72QU7HVz/XN9e3KCIFEryPj4nnd+HoxOmVikxjtmN9jjn5xKlzwd3U1tZhYjtR1MTp31kX4d2FwaPXtOML8CYXgkljSAkOLe3S1h0T8Xq3/pSdXG2py3192pAL4mdmke6Mlm78atgA2HhczqFl03gbzRV4dN+m8XVRBrVoW9ShYsM/lwkyl9gxPzfSp8SrihS2n/HlDXWvL9cd37+LMf2LtV4LNoMeqEMUZDONRSsm7Zr4b+B50vs+Ss9AKXFVX7MhA+077vA45gmBVxwxsPXI9Nmq2GrM42v1NajuLSzP3Vas9g4N8J/VSu142fc/jIGsoTdkImk7UWinsL6U2jox4Ig0dgQycIiRrng63Wfs92LShyvDSButvCjHxOUrC9AfXsdek+HyYusL9eS2bD8gj6BvjwGN5cORWEgLxBxu+QJhxQci6uD2GeShQt/CfroAWxKSzX6oPk79xZwLWsM9t2N5H97RaBOq/06ANq36y/WNv2jxJuNpIgOVwkyOEZogZ08qde3AmvdaNyQWecZkizsEoUGraHUmNOEHhjpACR9zhHhK3KabWfztQvrZm1ajOikh9asn+FDvTyHXhCp8ii5VmwPWgengTqcf/qd9GOcUkC/gGGmpZ5DY+2Vwjp8RluiAKgkbT4NxMOvaQw=
-  file: DynamicTimeWarp/bin/Debug/DynamicTimeWarp.dll
+  file: DynamicTimeWarp/bin/Release/DynamicTimeWarp.dll
   skip_cleanup: true
   on:
       tags: true
