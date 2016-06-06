@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57F46685-16F0-4A63-9075-EC17C9DCFF60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Recognizer</RootNamespace>
+    <AssemblyName>Recognizer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FixedSizedQueue.cs" />
+    <Compile Include="TemplateCollection.cs" />
+    <Compile Include="Recognizer.cs" />
+    <Compile Include="Filters\FilterExtensions.cs" />
+    <Compile Include="Classifiers\DynamicTimeWrapClassifier.cs" />
+    <Compile Include="Classifiers\IClassifier.cs" />
+    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\Normalizer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicTimeWarp\DynamicTimeWarp.csproj">
+      <Project>{AF48BE49-8EC2-498F-9241-4A7AAF504018}</Project>
+      <Name>DynamicTimeWarp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Filters\" />
+    <Folder Include="Classifiers\" />
+  </ItemGroup>
+</Project>

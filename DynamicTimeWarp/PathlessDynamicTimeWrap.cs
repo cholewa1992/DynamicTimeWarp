@@ -15,20 +15,20 @@ namespace dk.itu.jbec.DTW {
 			Dist = distFunction;
 		}
 
-		public double CalculateDistance(T[] seqA, T[] seqB)
+		public double CalculateDistance(IList<T> seqA, IList<T> seqB)
 		{
-			var w = Math.Max(W, Math.Abs(seqA.Length - seqB.Length));
+			var w = Math.Max(W, Math.Abs(seqA.Count - seqB.Count));
 
 			double[] prev = new double[0];
 			double[] cur = new double[0];
 
-			for (int i = 0; i < seqA.Length; i++) {
+			for (int i = 0; i < seqA.Count; i++) {
 				int len = 1 +
 					Math.Min(i + w,
 						Math.Min(w * 2,
-							w + (seqB.Length - (i + 1))));
+							w + (seqB.Count - (i + 1))));
 
-				cur = new double[Math.Min(len, seqB.Length)];
+				cur = new double[Math.Min(len, seqB.Count)];
 
 				for (int j = 0; j < cur.Length; j++) {
 					int seqJ = j + Math.Max(0, i - w);

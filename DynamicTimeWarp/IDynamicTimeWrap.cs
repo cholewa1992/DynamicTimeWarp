@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace dk.itu.jbec.DTW {
 
-	public interface IDynamicTimeWrap<in T> {
-		double CalculateDistance(T[] seqA, T[] seqB);
+	public interface IDynamicTimeWrap<T> {
+		double CalculateDistance(IList<T> seqA, IList<T> seqB);
 	}
 
 	public static class DistanceFunctions {
