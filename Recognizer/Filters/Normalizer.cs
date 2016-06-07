@@ -1,11 +1,6 @@
-using System;
-using System.IO;
-using System.Linq;
 using System.Collections.Generic;
-using dk.itu.jbec.DTW;
-using System.Collections.Concurrent;
 
-namespace Recognizer
+namespace Recognizer.Filters
 {
 
 	public class Normalizer : IFilter<IEnumerable<IList<double>>>
@@ -18,7 +13,7 @@ namespace Recognizer
 		{
 			foreach (var series in data) {	
 
-				double[] nArr = new double[series.Count];
+				var nArr = new double[series.Count];
 
 				while (_max.Count < series.Count) {
 					_max.Add (double.NegativeInfinity);
@@ -28,7 +23,7 @@ namespace Recognizer
 					_min.Add (double.PositiveInfinity);
 				}
 
-				for (int i = 0; i < series.Count; i++) {
+				for (var i = 0; i < series.Count; i++) {
 
 					if (series [i] > _max [i])
 						_max [i] = series[i];

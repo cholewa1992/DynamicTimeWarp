@@ -1,8 +1,3 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using dk.itu.jbec.DTW;
 using System.Collections.Concurrent;
 
 namespace Recognizer
@@ -10,9 +5,9 @@ namespace Recognizer
 
 	public class FixedSizedQueue<T> : ConcurrentQueue<T>
 	{
-		private readonly object syncObject = new object();
+		private readonly object _syncObject = new object();
 
-		public int Capacity { get; private set; }
+		public int Capacity { get; }
 
 		public FixedSizedQueue(int capacity)
 		{
@@ -22,7 +17,7 @@ namespace Recognizer
 		public new void Enqueue(T obj)
 		{
 			base.Enqueue(obj);
-			lock (syncObject)
+			lock (_syncObject)
 			{
 				while (base.Count > Capacity)
 				{

@@ -1,18 +1,14 @@
 using System;
-using System.IO;
-using System.Linq;
 using System.Collections.Generic;
-using dk.itu.jbec.DTW;
-using System.Collections.Concurrent;
+using System.Linq;
 
-namespace Recognizer
+namespace Recognizer.Filters
 {
 
 	public static class FilterExtensions {
-		public static IEnumerable<Tuple<string,T>> Filter<T>(this IFilter<T> filter, IEnumerable<Tuple<string,T>> data){
-			foreach (var template in data) {
-				yield return Tuple.Create (template.Item1, filter.Filter (template.Item2));
-			}
+		public static IEnumerable<Tuple<string,T>> Filter<T>(this IFilter<T> filter, IEnumerable<Tuple<string,T>> data)
+		{
+		    return data.Select(template => Tuple.Create (template.Item1, filter.Filter (template.Item2)));
 		}
 	} 
 	
